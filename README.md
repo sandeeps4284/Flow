@@ -3,11 +3,11 @@ Live Stream Application
 
 ## Captura 
 
-Front End
+Front End Coding & API
 
 ## Server 
 
-Back End
+Back End Coding
 
 ## To Run the application
 
