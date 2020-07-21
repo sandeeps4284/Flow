@@ -44,4 +44,15 @@ enableButton.addEventListener('click', function(e){
     e.preventDefault()
 },false)
 
+//Disable button
+disableButton.addEventListener('click', function(e){
+    const video = document.querySelector('video');
+
+    const mediaStream = video.srcObject;
+
+    const tracks = mediaStream.getTracks();
+    
+    tracks[0].stop();    
+},false)
+
 
