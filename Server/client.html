@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Processed Video</h1>
+    </div>
+    <img src="">
+    <script>
+
+        const img = document.querySelector('img')
+
+        const WS_URL = location.origin.replace(/^http/, 'ws');
+        const ws = new WebSocket(WS_URL)
+        ws.onopen = () => console.log(`Conncected to ${WS_URL}`)
+        ws.onmessage = message => {
+            img.src = message.data
+        }
+              
+    </script>
+</body>
+</html>     

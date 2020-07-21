@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stream</title>
+</head>
+<body>
+    <video autoplay></video>
+    <script>
+        
+        const video = document.querySelector('video');   //video dom
+
+        navigator.mediaDevices.getUserMedia({      //access to web cam
+            video: {width: 350, height: 262}
+        }).then((stream) => video.srcObject = stream)
+            
+        const getFrame = () => {
+            //draw canvas
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            const data = canvas.toDataURL('image/png');
+            return data;
+        }
+
+        const WS_URL = location.origin.replace(/^http/, 'ws');  //access web socket
+        const FPS = 3;
+        const ws = new WebSocket(WS_URL);
+            ws.onopen = () => {
+                console.log(`Connected to ${WS_URL}`);
+                setInterval(() => {
+                    ws.send(getFrame());
+                }, 1000 / FPS);
+            }
+        
+    </script>
+</body>
+</html>

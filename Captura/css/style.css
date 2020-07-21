@@ -1,0 +1,34 @@
+*{
+    margin: 0px;
+    padding:0px;
+    font-family: 'Times New Roman', Times, serif
+}
+.navbar{
+    background-color:#3333cc;
+    color: white
+}
+
+.navbar h1{
+    padding:5px
+}
+
+.container{
+    margin:50px;
+}
+
+.button #enable-button{
+    background-color:#003366;
+    color: white;
+    padding:15px;
+    font-size:15px;
+    align-content: center;
+    margin:50px
+}
+
+.button #disable-button{
+    background-color:#003366;
+    color: white;
+    padding:15px;
+    font-size:15px;
+    margin:50px
+}
